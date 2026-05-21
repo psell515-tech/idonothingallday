@@ -3,7 +3,7 @@ export async function onRequestPost(context) {
 
   const fileName = `${Date.now()}-${data.email}.json`;
 
-  await context.env.MY_BUCKET_IDNAD_CONTACT.put(
+  await context.env.MY_BUCKET_IDNAD_MESSAGES.put(
     fileName,
     JSON.stringify(data, null, 2)
   );
