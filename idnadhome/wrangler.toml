@@ -1,1 +1,7 @@
+name = "idonothingallday"
+compatibility_date = "2024-01-01"
+
+[[r2_buckets]]
+binding = "MY_BUCKET_IDNAD_CONTACT"
+bucket_name = "idonothingallday-contact"
 
