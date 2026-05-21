@@ -6,5 +6,5 @@ pages_build_output_dir = "./"
 
 # Bindings for Pages Functions
 [[r2_buckets]]
-binding = "MESSAGES"
+binding = "MY_BUCKET_IDNAD_MESSAGES"
 bucket_name = "idonothingallday-messages"
