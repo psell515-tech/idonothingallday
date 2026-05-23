@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Newsletter — IDNAD CLASSICS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --black: #000;
+      --white: #fff;
+      --dim: rgba(255,255,255,0.5);
+      --border: rgba(255,255,255,0.1);
+      --accent: #e8ff00;
+      --header-h: 56px;
+    }
+
+    html, body {
+      background: var(--black);
+      color: var(--white);
+      min-height: 100vh;
+      font-family: 'DM Mono', monospace;
+      overflow-x: hidden;
+    }
+
+    /* ── HEADER ── */
+    #header-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--header-h);
+      z-index: 100;
+    }
+
+    #header {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 28px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    #site-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 0.12em;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    #site-title span { color: var(--accent); }
+
+    #nav-left {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-link {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--dim);
+      text-decoration: none;
+      transition: color 0.2s ease;
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.25s ease;
+    }
+
+    .nav-link:hover { color: var(--white); }
+    .nav-link:hover::after { width: 100%; }
+
+    /* ── PAGE ── */
+    #page {
+      padding-top: calc(var(--header-h) + 80px);
+      padding-bottom: 80px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    .page-label {
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(52px, 10vw, 96px);
+      letter-spacing: 0.06em;
+      font-weight: 400;
+      line-height: 1;
+      margin-bottom: 32px;
+      animation: fadeUp 0.6s 0.08s ease both;
+    }
+
+    .divider {
+      width: 40px;
+      height: 1px;
+      background: var(--border);
+      margin: 0 auto 32px;
+      animation: fadeUp 0.6s 0.14s ease both;
+    }
+
+    .blurb {
+      max-width: 420px;
+      font-size: 13px;
+      line-height: 1.8;
+      color: var(--dim);
+      margin-bottom: 48px;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
+
+    .blurb strong {
+      color: var(--white);
+      font-weight: 400;
+    }
+
+    .cta {
+      display: inline-block;
+      padding: 0 36px;
+      height: 46px;
+      line-height: 46px;
+      border: 1px solid var(--border);
+      color: var(--white);
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+      animation: fadeUp 0.6s 0.28s ease both;
+    }
+
+    .cta:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(232,255,0,0.04);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 480px) {
+      #header { padding: 0 16px; }
+      #nav-left { gap: 18px; }
+      .nav-link { font-size: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div id="header-container"></div>
+  <script>
+    fetch("/header.html")
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById("header-container").innerHTML = html;
+      });
+  </script>
+
+  <!-- PAGE -->
+  <div id="page">
+    <p class="page-label">Stay in the loop</p>
+    <h1>The Newsletter</h1>
+    <div class="divider"></div>
+    <p class="blurb">
+      There's more where this came from.<br><br>
+      Hit the <strong>Contact</strong> button, drop your email, and we'll send you
+      links to content that doesn't make it to the front page —
+      classic cuts, hidden stuff, and whatever's next.
+    </p>
+    <a class="cta" href="/contact.html">Contact to Sign Up →</a>
+  </div>
+
+</body>
+</html>
