@@ -26,7 +26,7 @@ body {
   height: 60vh;
   width: calc(60vh * 9 / 16);
   background: black;
-  border-radius: 18px;
+  border-radius: 10px;
   overflow: hidden;
   position: relative;
   box-shadow: 0 0 28px rgba(0,0,0,0.55);
